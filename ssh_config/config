@@ -1,0 +1,4 @@
+# Disable host checking
+Host *
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null

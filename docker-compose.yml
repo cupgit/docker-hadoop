@@ -1,0 +1,20 @@
+version: '3'
+services:
+  hadoop:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    hostname: hadoop
+    ports:
+      - 9870:9870 # HTTP:// Same as port 50070 in Hadoop 2.x.x
+      - 9864:9864 # HTTP:// Same as port 50075 in Hadoop 2.x.x
+      - 9868:9868 # HTTP:// Same as port 50090 in Hadoop 2.x.x
+      - 8088:8088 # HTTP:// Resource manager
+      - 8042:8042 # HTTP:// Node manager
+      - 9000:9000 # HDFS:// Connect to cluster from applications
+    networks:
+      - xapp
+
+networks:
+  xapp:
+    external: true
